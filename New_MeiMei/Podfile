@@ -1,0 +1,32 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
+inhibit_all_warnings!
+
+target 'New_MeiMei' do
+  
+  use_frameworks!
+
+  # Pods for MeiMeiNew
+    pod 'SwiftyUserDefaults', '4.0.0-alpha.1'
+    pod 'SnapKit'
+    pod 'Moya-ObjectMapper'
+    pod 'Toast-Swift', '~> 4.0.0'
+    pod 'SDCycleScrollView', '1.75.0'
+    pod 'ESPullToRefresh'
+    pod 'NIMSDK' #网易云SDK
+    pod 'AlicloudPush', '~> 1.9.8' #阿里推送
+    pod 'TZImagePickerController'
+    pod 'SVProgressHUD', '2.0.4'
+    pod 'Nama-lite', '~> 5.8.0'
+
+    
+    #网易云信中UI部分需要
+    pod 'M80AttributedLabel' #网易云信中UI部分需要
+    pod 'Toast' #网易云信中UI部分需要
+#    pod 'SDWebImage', '4.4.2'
+
+end
+
