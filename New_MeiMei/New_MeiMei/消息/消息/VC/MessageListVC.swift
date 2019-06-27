@@ -36,31 +36,31 @@ class MessageListVC: NIMSessionListViewController {
     }
     
     fileprivate func loadMessageData() {
-//        MMProvider.request(.Message(.systemMessage(page:1)), completion:  {[weak self] result in
-//            switch result{
-//            case let .success(response):
-//                do {
-//                    let repos: MessageResponseModel? = MessageResponseModel(JSON: try response.mapJSON() as! [String : Any])
-//                    
-//                    if let repos = repos {
-//                        if repos.result == 1 {
-//                            
-//                            self?.list = repos.list
-//                            self?.tableView.es.stopPullToRefresh()
-//                            self?.refresh()
-//                        }
-//                    }
-//                } catch {
-//                    
-//                }
-//            case let .failure(error):
-//                
-//                guard let description = error.errorDescription else {
-//                    break
-//                }
-//                print(description)
-//            }
-//        })
+        MMProvider.request(.Message(.systemMessage(page:1)), completion:  {[weak self] result in
+            switch result{
+            case let .success(response):
+                do {
+                    let repos: MessageResponseModel? = MessageResponseModel(JSON: try response.mapJSON() as! [String : Any])
+                    
+                    if let repos = repos {
+                        if repos.result == 1 {
+                            
+                            self?.list = repos.list
+                            self?.tableView.es.stopPullToRefresh()
+                            self?.refresh()
+                        }
+                    }
+                } catch {
+                    
+                }
+            case let .failure(error):
+                
+                guard let description = error.errorDescription else {
+                    break
+                }
+                print(description)
+            }
+        })
     }
     
     override func refresh() {

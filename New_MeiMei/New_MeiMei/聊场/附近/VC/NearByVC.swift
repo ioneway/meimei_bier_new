@@ -55,66 +55,60 @@ class NearByVC: BaseViewController {
     
     func loadBannerData() {
         
-//        MMProvider.request(.LCVC(.banner), completion:  {[weak self] result in
-//            switch result{
-//            case let .success(response):
-//                do {
-//                    let repos: BannerResponseModel? = BannerResponseModel(JSON: try response.mapJSON() as! [String : Any])
-//
-//                    if let repos = repos {
-//                        if repos.result == 1 {
-//
-//                          let list =  repos.banners.map{ $0.img_link }
-//                          self?.scrollView?.imageURLStringsGroup = list
-//
-//                        }
-//                    }
-//                } catch {
-//
-//                }
-//            case let .failure(error):
-//
-//                guard let description = error.errorDescription else {
-//                    break
-//                }
-//                print(description)
-//            }
-//        })
+        MMProvider.request(.LCVC(.banner), completion:  {[weak self] result in
+            switch result{
+            case let .success(response):
+                do {
+                    let repos: BannerResponseModel? = BannerResponseModel(JSON: try response.mapJSON() as! [String : Any])
+
+                    if let repos = repos {
+                        if repos.result == 1 {
+
+                          let list =  repos.banners.map{ $0.img_link }
+                          self?.scrollView?.imageURLStringsGroup = list
+
+                        }
+                    }
+                } catch {
+
+                }
+            case let .failure(error):
+
+                guard let description = error.errorDescription else {
+                    break
+                }
+                print(description)
+            }
+        })
     }
     
     func loadNearbyData() {
         
-//        MMProvider.request(.LCVC(.nearby(page: 1)), completion:  {[weak self] result in
-//            switch result{
-//            case let .success(response):
-//                do {
-//                    let repos: NearbyResponseModel? = NearbyResponseModel(JSON: try response.mapJSON() as! [String : Any])
-//                    
-//                    if let repos = repos {
-//                        if repos.result == 1 {
-//                            self?.list = repos.list
-//                            self?._tableView.reloadData()
-//                        }
-//                    }
-//                } catch {
-//                    
-//                }
-//            case let .failure(error):
-//                
-//                guard let description = error.errorDescription else {
-//                    break
-//                }
-//                print(description)
-//            }
-//        })
+        MMProvider.request(.LCVC(.nearby(page: 1)), completion:  {[weak self] result in
+            switch result{
+            case let .success(response):
+                do {
+                    let repos: NearbyResponseModel? = NearbyResponseModel(JSON: try response.mapJSON() as! [String : Any])
+                    
+                    if let repos = repos {
+                        if repos.result == 1 {
+                            self?.list = repos.list
+                            self?._tableView.reloadData()
+                        }
+                    }
+                } catch {
+                    
+                }
+            case let .failure(error):
+                
+                guard let description = error.errorDescription else {
+                    break
+                }
+                print(description)
+            }
+        })
         
-        EDBaseAdapter.request(.LCVC(.nearby(page: 1)), success: { (data) in
-            print(data)
-        }, error: { (statutCode, message) in
-            print(statutCode,message)
-        }) { (error) in
-            print(error)
-        }
+
     }
 }
 

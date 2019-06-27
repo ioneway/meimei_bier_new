@@ -56,68 +56,68 @@ class RecomendVC: BaseViewController {
     
     func loadBannerData() {
         
-//        MMProvider.request(.LCVC(.banner), completion:  {[weak self] result in
-//            switch result{
-//            case let .success(response):
-//                do {
-//                    let repos: BannerResponseModel? = BannerResponseModel(JSON: try response.mapJSON() as! [String : Any])
-//                    
-//                    if let repos = repos {
-//                        if repos.result == 1 {
-//                            
-//                            let list =  repos.banners.map{ $0.img_link }
-//                            self?.imgUrlGroup? = list
-//                            
-//                            self?.collectionView.reloadData()
-//                        }
-//                    }
-//                } catch {
-//                    
-//                }
-//            case let .failure(error):
-//                
-//                guard let description = error.errorDescription else {
-//                    break
-//                }
-//                print(description)
-//            }
-//        })
+        MMProvider.request(.LCVC(.banner), completion:  {[weak self] result in
+            switch result{
+            case let .success(response):
+                do {
+                    let repos: BannerResponseModel? = BannerResponseModel(JSON: try response.mapJSON() as! [String : Any])
+                    
+                    if let repos = repos {
+                        if repos.result == 1 {
+                            
+                            let list =  repos.banners.map{ $0.img_link }
+                            self?.imgUrlGroup? = list
+                            
+                            self?.collectionView.reloadData()
+                        }
+                    }
+                } catch {
+                    
+                }
+            case let .failure(error):
+                
+                guard let description = error.errorDescription else {
+                    break
+                }
+                print(description)
+            }
+        })
     }
     
     func loadRecomendData() {
-//        MMProvider.request(.LCVC(.recommend(page: self.page)), completion:  {[weak self] result in
-//            switch result{
-//            case let .success(response):
-//                do {
-//                    let repos: RecomendResponseModel? = RecomendResponseModel(JSON: try response.mapJSON() as! [String : Any])
-//                    
-//                    if let repos = repos {
-//                        if repos.result == 1 {
-//                            if self?.page == 1 {
-//                                self?.list = repos.list
-//                                self?.collectionView.es.stopPullToRefresh()
-//                            }else {
-//                                if (self?.list?.count ?? 0) >= repos.totalCount { //数据已经完了
-//                                    self?.collectionView.es.noticeNoMoreData()
-//                                }else {
-//                                    self?.list?.append(contentsOf: repos.list)
-//                                    self?.collectionView.es.stopLoadingMore()
-//                                }
-//                            }
-//                            self?.collectionView.reloadData()
-//                        }
-//                    }
-//                } catch {
-//                    
-//                }
-//            case let .failure(error):
-//                
-//                guard let description = error.errorDescription else {
-//                    break
-//                }
-//                print(description)
-//            }
-//        })
+        MMProvider.request(.LCVC(.recommend(page: self.page)), completion:  {[weak self] result in
+            switch result{
+            case let .success(response):
+                do {
+                    let repos: RecomendResponseModel? = RecomendResponseModel(JSON: try response.mapJSON() as! [String : Any])
+                    
+                    if let repos = repos {
+                        if repos.result == 1 {
+                            if self?.page == 1 {
+                                self?.list = repos.list
+                                self?.collectionView.es.stopPullToRefresh()
+                            }else {
+                                if (self?.list?.count ?? 0) >= repos.totalCount { //数据已经完了
+                                    self?.collectionView.es.noticeNoMoreData()
+                                }else {
+                                    self?.list?.append(contentsOf: repos.list)
+                                    self?.collectionView.es.stopLoadingMore()
+                                }
+                            }
+                            self?.collectionView.reloadData()
+                        }
+                    }
+                } catch {
+                    
+                }
+            case let .failure(error):
+                
+                guard let description = error.errorDescription else {
+                    break
+                }
+                print(description)
+            }
+        })
     }
 }
 

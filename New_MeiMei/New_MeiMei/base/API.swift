@@ -145,6 +145,8 @@ private func endpointMapping<Target: TargetType>(target: Target) -> Endpoint {
     return MoyaProvider.defaultEndpointMapping(for: target)
 }
 
+let MMProvider = MoyaProvider<API>(endpointClosure:endpointMapping, plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+
 open class EDBaseAdapter:NSObject {
     
     class func  request(

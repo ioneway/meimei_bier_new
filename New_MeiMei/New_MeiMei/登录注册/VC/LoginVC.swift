@@ -55,32 +55,32 @@ class LoginVC: BaseViewController {
     
     //发送验证码
     private func sendSMSCodeCompleted(block:@escaping () -> Void) {
-//        MMProvider.request(.Login(.smsCode(mobile: _phoneField.text ?? "" )), completion:  {[weak self] result in
-//            switch result{
-//            case let .success(response):
-//                do {
-//                    let repos: ResponseModel? = ResponseModel(JSON: try response.mapJSON() as! [String : Any])
-//                    
-//                    if let repos = repos {
-//                        if repos.result == 1 {
-//                            block()
-//                            self?.view.makeToast("验证码发送成功", position: .center)
-//                        }else {
-//                            self?.view.makeToast(repos.msg, position: .center)
-//                        }
-//                    } else {
-//                    }
-//                } catch {
-//                    
-//                }
-//            case let .failure(error):
-//                
-//                guard let description = error.errorDescription else {
-//                    break
-//                }
-//                print(description)
-//            }
-//        })
+        MMProvider.request(.Login(.smsCode(mobile: _phoneField.text ?? "" )), completion:  {[weak self] result in
+            switch result{
+            case let .success(response):
+                do {
+                    let repos: ResponseModel? = ResponseModel(JSON: try response.mapJSON() as! [String : Any])
+                    
+                    if let repos = repos {
+                        if repos.result == 1 {
+                            block()
+                            self?.view.makeToast("验证码发送成功", position: .center)
+                        }else {
+                            self?.view.makeToast(repos.msg, position: .center)
+                        }
+                    } else {
+                    }
+                } catch {
+                    
+                }
+            case let .failure(error):
+                
+                guard let description = error.errorDescription else {
+                    break
+                }
+                print(description)
+            }
+        })
     }
     
     
@@ -111,63 +111,63 @@ class LoginVC: BaseViewController {
     
     private func login(block:@escaping () -> Void) {
         
-//        MMProvider.request(.Login(.login(mobile: _phoneField.text ?? "", code: _codeField.text ?? "" )), completion: {[weak self] result in
-//            switch result{
-//            case let .success(response):
-//                do {
-//                    let repos: LoginModel? = LoginModel(JSON: try response.mapJSON() as! [String : Any])
-//                    
-//                    if let repos = repos {
-//                        if repos.result == 1 {
-//                            
-//                            UserInfo.default.is_bind_mobile = repos.is_bind_mobile
-//                            UserInfo.default.imtoken = repos.imtoken
-//                            UserInfo.default.token = repos.token
-//                            UserInfo.default.accid = repos.accid
-//                            UserInfo.default.avatar_verifed = repos.avatar_verifed
-//                            UserInfo.default.album = repos.userInfo?.ex?.album ?? []
-//                            UserInfo.default.age = repos.userInfo?.ex?.age ?? ""
-//                            UserInfo.default.area = repos.userInfo?.ex?.area ?? ""
-//                            UserInfo.default.city = repos.userInfo?.ex?.city ?? ""
-//                            UserInfo.default.province = repos.userInfo?.ex?.province ?? ""
-//                            UserInfo.default.evaluate_score = repos.userInfo?.ex?.evaluate_score ?? ""
-//                            UserInfo.default.extend_mobile = repos.userInfo?.ex?.extend_mobile ?? ""
-//                            UserInfo.default.message = repos.userInfo?.ex?.message
-//                            UserInfo.default.msg_remind = repos.userInfo?.ex?.msg_remind ?? ""
-//                            UserInfo.default.public_contact = repos.userInfo?.ex?.public_contact ?? ""
-//                            UserInfo.default.qqnum = repos.userInfo?.ex?.qqnum ?? ""
-//                            UserInfo.default.received_reward = "\(repos.userInfo?.ex?.received_reward ?? 0)"
-//                            UserInfo.default.msg_remind = repos.userInfo?.ex?.msg_remind ?? ""
-//                            UserInfo.default.public_contact = repos.userInfo?.ex?.public_contact ?? ""
-//                            UserInfo.default.qqnum = repos.userInfo?.ex?.qqnum ?? ""
-//                            
-//                            UserInfo.default.video = repos.userInfo?.ex?.video
-//                            UserInfo.default.vip = repos.userInfo?.ex?.vip ?? false
-//                            UserInfo.default.voice = repos.userInfo?.ex?.voice
-//                            UserInfo.default.weixin = repos.userInfo?.ex?.weixin ?? ""
-//                            UserInfo.default.weixin_open_id = repos.userInfo?.ex?.weixin_open_id ?? ""
-//                            
-//                            UserInfo.default.write()
-//                            
-//                            block()
-//                            
-//                            
-//                            
-//                        }else {
-//                            self?.view.makeToast(repos.msg, position: .center)
-//                        }
-//                    } else {}
-//                } catch {
-//                    
-//                }
-//            case let .failure(error):
-//                
-//                guard let description = error.errorDescription else {
-//                    break
-//                }
-//                print(description)
-//            }
-//        })
+        MMProvider.request(.Login(.login(mobile: _phoneField.text ?? "", code: _codeField.text ?? "" )), completion: {[weak self] result in
+            switch result{
+            case let .success(response):
+                do {
+                    let repos: LoginModel? = LoginModel(JSON: try response.mapJSON() as! [String : Any])
+                    
+                    if let repos = repos {
+                        if repos.result == 1 {
+                            
+                            UserInfo.default.is_bind_mobile = repos.is_bind_mobile
+                            UserInfo.default.imtoken = repos.imtoken
+                            UserInfo.default.token = repos.token
+                            UserInfo.default.accid = repos.accid
+                            UserInfo.default.avatar_verifed = repos.avatar_verifed
+                            UserInfo.default.album = repos.userInfo?.ex?.album ?? []
+                            UserInfo.default.age = repos.userInfo?.ex?.age ?? ""
+                            UserInfo.default.area = repos.userInfo?.ex?.area ?? ""
+                            UserInfo.default.city = repos.userInfo?.ex?.city ?? ""
+                            UserInfo.default.province = repos.userInfo?.ex?.province ?? ""
+                            UserInfo.default.evaluate_score = repos.userInfo?.ex?.evaluate_score ?? ""
+                            UserInfo.default.extend_mobile = repos.userInfo?.ex?.extend_mobile ?? ""
+                            UserInfo.default.message = repos.userInfo?.ex?.message
+                            UserInfo.default.msg_remind = repos.userInfo?.ex?.msg_remind ?? ""
+                            UserInfo.default.public_contact = repos.userInfo?.ex?.public_contact ?? ""
+                            UserInfo.default.qqnum = repos.userInfo?.ex?.qqnum ?? ""
+                            UserInfo.default.received_reward = "\(repos.userInfo?.ex?.received_reward ?? 0)"
+                            UserInfo.default.msg_remind = repos.userInfo?.ex?.msg_remind ?? ""
+                            UserInfo.default.public_contact = repos.userInfo?.ex?.public_contact ?? ""
+                            UserInfo.default.qqnum = repos.userInfo?.ex?.qqnum ?? ""
+                            
+                            UserInfo.default.video = repos.userInfo?.ex?.video
+                            UserInfo.default.vip = repos.userInfo?.ex?.vip ?? false
+                            UserInfo.default.voice = repos.userInfo?.ex?.voice
+                            UserInfo.default.weixin = repos.userInfo?.ex?.weixin ?? ""
+                            UserInfo.default.weixin_open_id = repos.userInfo?.ex?.weixin_open_id ?? ""
+                            
+                            UserInfo.default.write()
+                            
+                            block()
+                            
+                            
+                            
+                        }else {
+                            self?.view.makeToast(repos.msg, position: .center)
+                        }
+                    } else {}
+                } catch {
+                    
+                }
+            case let .failure(error):
+                
+                guard let description = error.errorDescription else {
+                    break
+                }
+                print(description)
+            }
+        })
     }
     
     override func viewDidLoad() {
